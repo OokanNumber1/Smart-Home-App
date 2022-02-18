@@ -59,6 +59,7 @@ class AppProvider extends ChangeNotifier {
   List favouriteItems = [];
   Color bedColor = Colors.yellow;
   int currentIndex = 0;
+  int infoCardIndex = 0;
 
   void setSelectedCategory(category setTo) {
     selectedCategory.enumCategory = setTo;
@@ -86,6 +87,10 @@ class AppProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void infoCardChange(int index) {
+    infoCardIndex = index;
+    notifyListeners();
+  }
   // List<String> categoryList = [
   //   'Favorites',
   //   'Kitchen',

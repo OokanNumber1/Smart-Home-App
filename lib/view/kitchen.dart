@@ -80,7 +80,7 @@ class KitchenCategory extends StatelessWidget {
                     ? Icons.toggle_on_rounded
                     : Icons.toggle_off_rounded,
                 size: 60,
-                color: (provider.bedBulbMode) ? Colors.blue : null),
+                color: (provider.bedBulbMode) ? Colors.blue : Colors.grey[300]),
           ),
           subTile: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12.0),
@@ -115,7 +115,7 @@ class KitchenCategory extends StatelessWidget {
         ),
         AppSize.spacedHeight(12),
         AirConditioningCard(),
-        AppSize.spacedHeight(22),
+        //AppSize.spacedHeight(2),
         ElevatedButton(
           onPressed: () {},
           child: Text(AppText.customiseHomePage),
@@ -127,4 +127,5 @@ class KitchenCategory extends StatelessWidget {
       ],
     );
   }
+  //! OpA 0786040470
 }

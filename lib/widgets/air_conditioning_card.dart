@@ -32,7 +32,9 @@ class AirConditioningCard extends StatelessWidget {
                       ? Icons.toggle_on_rounded
                       : Icons.toggle_off_rounded,
                   size: 60,
-                  color: (provider.airConditionMode) ? Colors.blue : null),
+                  color: (provider.airConditionMode)
+                      ? Colors.blue
+                      : Colors.grey[300]),
             ),
           ),
           Padding(
@@ -60,13 +62,13 @@ class AirConditioningCard extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.wb_sunny_outlined,
-                            color: Colors.grey[200],
+                            color: Colors.grey,
                           ),
                           AppSize.spacedWidth(10),
                           Icon(Icons.control_point_duplicate_sharp,
-                              color: Colors.grey[200]),
+                              color: Colors.grey),
                           AppSize.spacedWidth(10),
-                          Icon(Icons.water, color: Colors.grey[200])
+                          Icon(Icons.water, color: Colors.grey)
                         ],
                       ),
                       Chip(
