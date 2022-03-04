@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_app/random/app_style.dart';
+import 'package:smart_home_app/constants/app_colors.dart';
+import 'package:smart_home_app/constants/app_styles.dart';
+import 'package:smart_home_app/constants/app_texts.dart';
+import 'package:smart_home_app/constants/app_numbers.dart';
 
 class InfoCard extends StatelessWidget {
   const InfoCard({Key? key}) : super(key: key);
@@ -8,81 +11,82 @@ class InfoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return OrientationBuilder(
       builder: (context, orientation) => Container(
-        height: orientation == Orientation.portrait
-            ? AppSize.appHeight(context, 0.2)
-            : AppSize.appHeight(context, 0.4),
         width: double.infinity,
-        padding: EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: AppStyle.redColor,
+          color: AppColors.redColor,
         ),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(AppText.energyUsage, style: AppStyle.whiteBold),
+              children: const [
+                Text(AppTexts.energyUsage, style: AppStyles.whiteBold),
                 CircleAvatar(
                   radius: 10,
                   backgroundColor: Colors.white,
                   child: Icon(
                     Icons.more_horiz_rounded,
                     size: 16,
-                    color: AppStyle.redColor,
+                    color: AppColors.redColor,
                   ),
                 )
               ],
             ),
             const Divider(
-              thickness: 1.1,
+              height: 16,
+              thickness: 1,
               color: Colors.white24,
             ),
-            SizedBox(
-              height: 12,
-            ),
+            const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      AppText.today,
-                      style: AppStyle.whiteNormal,
+                    const Text(
+                      AppTexts.today,
+                      style: AppStyles.whiteNormal,
                     ),
-                    SizedBox(
-                      height: 5,
-                    ),
+                    const SizedBox(height: 4),
                     Row(
                       children: [
-                        Icon(Icons.arrow_upward, color: Colors.white),
+                        const Icon(
+                          Icons.arrow_upward,
+                          color: Colors.white,
+                          size: 16,
+                        ),
+                        const SizedBox(width: 4),
                         Text(
-                          '${AppNumeric.dailyEnergy.toString()} kWh',
-                          style: AppStyle.whiteBold,
+                          '${AppNumbers.dailyEnergy.toString()} kWh',
+                          style: AppStyles.whiteBold,
                         )
                       ],
                     )
                   ],
                 ),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      AppText.thisMonth,
-                      style: AppStyle.whiteNormal,
+                    const Text(
+                      AppTexts.thisMonth,
+                      style: AppStyles.whiteNormal,
                     ),
-                    SizedBox(
-                      height: 5,
-                    ),
+                    const SizedBox(height: 4),
                     Row(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.arrow_upward,
                           color: Colors.white,
+                          size: 16,
                         ),
+                        const SizedBox(width: 4),
                         Text(
-                          '${AppNumeric.monthlyEnergy.toString()} kWh',
-                          style: AppStyle.whiteBold,
+                          '${AppNumbers.monthlyEnergy.toString()} kWh',
+                          style: AppStyles.whiteBold,
                         )
                       ],
                     )

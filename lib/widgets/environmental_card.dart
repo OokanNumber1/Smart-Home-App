@@ -1,24 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_app/random/app_style.dart';
+import 'package:smart_home_app/constants/app_sizes.dart';
+import 'package:smart_home_app/constants/app_styles.dart';
 
 class EnvironmentalCard extends StatelessWidget {
-  //const EnvironmentalCard({Key? key}) : super(key: key);
-  EnvironmentalCard(
-      {required this.leadingIcon,
-      required this.title,
-      required this.subTile,
-      required this.trailingIcon});
-  IconData leadingIcon;
-  String title;
-  Widget trailingIcon;
-  Widget subTile;
+  const EnvironmentalCard({
+    Key? key,
+    required this.leadingIcon,
+    required this.title,
+    required this.subTile,
+    required this.trailingIcon,
+  }) : super(key: key);
+
+  final IconData leadingIcon;
+  final String title;
+  final Widget trailingIcon;
+  final Widget subTile;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: AppSize.appHeight(context, 0.18),
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      height: AppSizes.appHeight(context, 0.18),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(25), color: Colors.white),
+        borderRadius: BorderRadius.circular(25),
+        color: Colors.white,
+      ),
       child: Column(
         children: [
           ListTile(
@@ -28,7 +34,7 @@ class EnvironmentalCard extends StatelessWidget {
                 child: Icon(leadingIcon)),
             title: Text(
               title,
-              style: AppStyle.blackTileTitle,
+              style: AppStyles.blackTileTitle,
             ),
             trailing: trailingIcon,
           ),

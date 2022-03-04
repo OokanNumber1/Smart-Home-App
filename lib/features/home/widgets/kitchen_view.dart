@@ -1,13 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:smart_home_app/constants/app_sizes.dart';
+import 'package:smart_home_app/constants/app_styles.dart';
+import 'package:smart_home_app/constants/app_texts.dart';
+import 'package:smart_home_app/features/home/viewmodels/home_viewmodel.dart';
 import 'package:smart_home_app/provider/app_provider.dart';
-import 'package:smart_home_app/random/app_style.dart';
-import 'package:smart_home_app/view/kitchen.dart';
-import 'package:smart_home_app/view/pick_color.dart';
+import 'package:smart_home_app/features/home/widgets/pick_color_view.dart';
 import 'package:smart_home_app/widgets/air_conditioning_card.dart';
 import 'package:smart_home_app/widgets/environmental_card.dart';
-import 'package:smart_home_app/widgets/info_card.dart';
 
 class KitchenCategory extends StatelessWidget {
   const KitchenCategory({Key? key}) : super(key: key);
@@ -19,8 +19,8 @@ class KitchenCategory extends StatelessWidget {
       children: [
         EnvironmentalCard(
           leadingIcon: Icons.device_thermostat,
-          title: AppText.temperatureHumidity,
-          trailingIcon: Icon(
+          title: AppTexts.temperatureHumidity,
+          trailingIcon: const Icon(
             Icons.battery_full,
             color: Colors.blue,
           ),
@@ -33,45 +33,33 @@ class KitchenCategory extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Icon(
-                          Icons.thermostat,
-                          color: Colors.grey,
-                        ),
-                        AppSize.spacedWidth(5),
-                        Text(
-                          '29*',
-                          style: AppStyle.numberOnCard,
-                        ),
+                        const Icon(Icons.thermostat, color: Colors.grey),
+                        AppSizes.spacedWidth(5),
+                        const Text('29*', style: AppStyles.numberOnCard),
                       ],
                     ),
-                    AppSize.spacedWidth(15),
+                    AppSizes.spacedWidth(15),
                     Row(
                       children: [
-                        Icon(
-                          Icons.water,
-                          color: Colors.grey,
-                        ),
-                        AppSize.spacedWidth(5),
-                        Text(
-                          '72%',
-                          style: AppStyle.numberOnCard,
-                        )
+                        const Icon(Icons.water, color: Colors.grey),
+                        AppSizes.spacedWidth(5),
+                        const Text('72%', style: AppStyles.numberOnCard)
                       ],
                     ),
                   ],
                 ),
                 Chip(
-                  label: Text(category.Kitchen.name),
+                  label: Text(Category.kitchen.name),
                   backgroundColor: Colors.grey[200],
                 )
               ],
             ),
           ),
         ),
-        AppSize.spacedHeight(12),
+        AppSizes.spacedHeight(12),
         EnvironmentalCard(
           leadingIcon: Icons.lightbulb,
-          title: AppText.bed,
+          title: AppTexts.bed,
           trailingIcon: //ToggleButtons(children: children, isSelected: isSelected)
               GestureDetector(
             onTap: () => provider.updatebedBulbMode(),
@@ -90,15 +78,18 @@ class KitchenCategory extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      AppText.colour,
-                      style: AppStyle.blackTileTitle.copyWith(fontSize: 14),
+                      AppTexts.colour,
+                      style: AppStyles.blackTileTitle.copyWith(fontSize: 14),
                     ),
-                    AppSize.spacedWidth(5),
+                    AppSizes.spacedWidth(5),
                     //! ColorPicker
                     GestureDetector(
-                      onTap: () => Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => PickColor())),
-                      child: CircleAvatar(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const PickColorView()),
+                      ),
+                      child: const CircleAvatar(
                         radius: 15,
                         backgroundColor: Colors.yellow,
                       ),
@@ -106,26 +97,26 @@ class KitchenCategory extends StatelessWidget {
                   ],
                 ),
                 Chip(
-                  label: Text(category.Kitchen.name),
+                  label: Text(Category.kitchen.name),
                   backgroundColor: Colors.grey[200],
                 )
               ],
             ),
           ),
         ),
-        AppSize.spacedHeight(12),
-        AirConditioningCard(),
-        //AppSize.spacedHeight(2),
+        AppSizes.spacedHeight(12),
+        const AirConditioningCard(),
         ElevatedButton(
           onPressed: () {},
-          child: Text(AppText.customiseHomePage),
+          child: const Text(AppTexts.customiseHomePage),
           style: ElevatedButton.styleFrom(
-              minimumSize: Size(AppSize.appWidth(context, 0.45), 45),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20))),
+            minimumSize: Size(AppSizes.appWidth(context, 0.45), 45),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ),
         )
       ],
     );
   }
-  //! OpA 0786040470
 }

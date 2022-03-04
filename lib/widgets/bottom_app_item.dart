@@ -1,35 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_app/random/app_style.dart';
+import 'package:smart_home_app/constants/app_styles.dart';
 
+// Your widgets should be immutable
 class BottomAppItem extends StatelessWidget {
-  BottomAppItem(
-      {required this.icon,
-      required this.label,
-      required this.onTouchDown,
-      this.active});
-  IconData icon;
-  String label;
-  Function onTouchDown;
-  bool? active = false;
+  const BottomAppItem({
+    Key? key,
+    required this.icon,
+    required this.label,
+    required this.onTouchDown,
+    this.active = false,
+  }) : super(key: key);
+
+  final IconData icon;
+  final String label;
+  final Function()? onTouchDown;
+  final bool active;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        onTouchDown();
-      },
+      onTap: onTouchDown,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(
             icon,
-            size: 20,
-            color: active! ? Colors.black : Colors.grey,
+            size: 24,
+            color: active ? Colors.black : Colors.grey,
           ),
+          const SizedBox(height: 4),
           Text(
             label,
-            style: AppStyle.navBarStyle.copyWith(
-              color: active! ? Colors.black : Colors.grey,
+            style: AppStyles.navBarStyle.copyWith(
+              color: active ? Colors.black : Colors.grey,
             ),
           )
         ],

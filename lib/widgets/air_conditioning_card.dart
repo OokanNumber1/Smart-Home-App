@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:smart_home_app/constants/app_sizes.dart';
+import 'package:smart_home_app/constants/app_styles.dart';
+import 'package:smart_home_app/constants/app_texts.dart';
+import 'package:smart_home_app/features/home/viewmodels/home_viewmodel.dart';
 import 'package:smart_home_app/provider/app_provider.dart';
-import 'package:smart_home_app/random/app_style.dart';
 
 class AirConditioningCard extends StatelessWidget {
+  const AirConditioningCard({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<AppProvider>(context);
     return Container(
-      height: AppSize.appHeight(context, 0.254),
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      height: AppSizes.appHeight(context, 0.254),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25), color: Colors.white),
       child: Column(
@@ -22,8 +27,8 @@ class AirConditioningCard extends StatelessWidget {
                   Icons.air_rounded,
                 )),
             title: const Text(
-              AppText.airConditioning,
-              style: AppStyle.blackTileTitle,
+              AppTexts.airConditioning,
+              style: AppStyles.blackTileTitle,
             ),
             trailing: GestureDetector(
               onTap: () => provider.updateairConditionMode(),
@@ -60,19 +65,19 @@ class AirConditioningCard extends StatelessWidget {
                       Row(
                         //mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.wb_sunny_outlined,
                             color: Colors.grey,
                           ),
-                          AppSize.spacedWidth(10),
-                          Icon(Icons.control_point_duplicate_sharp,
+                          AppSizes.spacedWidth(10),
+                          const Icon(Icons.control_point_duplicate_sharp,
                               color: Colors.grey),
-                          AppSize.spacedWidth(10),
-                          Icon(Icons.water, color: Colors.grey)
+                          AppSizes.spacedWidth(10),
+                          const Icon(Icons.water, color: Colors.grey)
                         ],
                       ),
                       Chip(
-                        label: Text(category.Kitchen.name),
+                        label: Text(Category.kitchen.name),
                         backgroundColor: Colors.grey[200],
                       )
                     ],
