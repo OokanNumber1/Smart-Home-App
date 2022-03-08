@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:smart_home_app/provider/app_provider.dart';
+import 'package:smart_home_app/viewmodels/app_provider.dart';
 import 'package:smart_home_app/random/app_style.dart';
+import 'package:smart_home_app/viewmodels/category_selection_view_model.dart';
 
 class AirConditioningCard extends StatelessWidget {
   @override
@@ -72,7 +73,7 @@ class AirConditioningCard extends StatelessWidget {
                         ],
                       ),
                       Chip(
-                        label: Text(category.Kitchen.name),
+                        label: Text(Category.kitchen.text),
                         backgroundColor: Colors.grey[200],
                       )
                     ],

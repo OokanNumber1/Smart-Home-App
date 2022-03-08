@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:smart_home_app/provider/app_provider.dart';
+import 'package:smart_home_app/viewmodels/app_provider.dart';
 import 'package:smart_home_app/random/app_style.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
@@ -36,7 +36,7 @@ class PickColor extends StatelessWidget {
             child: CircleAvatar(
               //radius: 5,
               backgroundColor: Colors.grey[200],
-              child: Icon(
+              child: const Icon(
                 Icons.arrow_back_ios,
                 color: Colors.black,
               ),
@@ -46,7 +46,7 @@ class PickColor extends StatelessWidget {
         centerTitle: true,
         title: Column(
           children: [
-            Text(
+            const Text(
               AppText.bed,
               style: AppStyle.black20,
             ),
@@ -64,7 +64,7 @@ class PickColor extends StatelessWidget {
                   child: CircleAvatar(
                       //radius: 5,
                       backgroundColor: Colors.grey[200],
-                      child: Icon(
+                      child: const Icon(
                         Icons.favorite,
                         color: Colors.grey,
                       ))))
@@ -83,25 +83,6 @@ class PickColor extends StatelessWidget {
                 size: 60,
                 color: provider.bedBulbMode ? Colors.blue : Colors.grey),
           ),
-
-          /*
-          HSVColorPickerExample(
-            pickerColor: currentColor,
-            onColorChanged: changeColor,
-            colorHistory: colorHistory,
-            onHistoryChanged: (List<Color> colors) => colorHistory = colors,
-          ),
-          MaterialColorPickerExample(
-              pickerColor: currentColor, onColorChanged: changeColor),
-          BlockColorPickerExample(
-            pickerColor: currentColor,
-            onColorChanged: changeColor,
-            pickerColors: currentColors,
-            onColorsChanged: changeColors,
-            colorHistory: colorHistory,
-          ),
-          */
-
           ColorPicker(
               pickerColor: Colors.yellow, onColorChanged: (Color color) {})
         ],

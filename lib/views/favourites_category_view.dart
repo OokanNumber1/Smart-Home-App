@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:smart_home_app/provider/app_provider.dart';
+import 'package:smart_home_app/viewmodels/app_provider.dart';
 import 'package:smart_home_app/random/app_style.dart';
 
-class Favourites extends StatelessWidget {
-  //const Favourites({ Key? key }) : super(key: key);
+class FavouritesView extends StatelessWidget {
+  const FavouritesView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final favouriteProvider = Provider.of<AppProvider>(context).favouriteItems;
     if (favouriteProvider.isEmpty) {
-      return Container(
+      return SizedBox(
         height: AppSize.appHeight(context, 0.64),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_app/provider/app_provider.dart';
+import 'package:smart_home_app/viewmodels/app_provider.dart';
 
 class AppStyle {
   static const redColor = Color(0x4ffE04F7E);
